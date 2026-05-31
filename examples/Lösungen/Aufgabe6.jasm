@@ -1,0 +1,68 @@
+; =========================================================
+; Aufgabe 6:
+; Hochzählen bis 10
+;
+; Speicherzelle 90 wird zunächst auf 0 gesetzt.
+;
+; Danach wird der Wert schrittweise
+; bis 10 erhöht.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Startwert setzen
+; ---------------------------------------------------------
+
+        NULL zahl       ; zahl = 0
+
+
+; ---------------------------------------------------------
+; Schleife
+; ---------------------------------------------------------
+
+loop:
+
+        INC zahl        ; zahl um 1 erhöhen
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist zahl bereits 10?
+; ---------------------------------------------------------
+
+        TAKE zahl       ; Aktuellen Wert laden
+
+        SUB zehn        ; 10 abziehen
+                        ; Ergebnis:
+                        ; 0 falls zahl = 10
+
+        SAVE test       ; Ergebnis zwischenspeichern
+
+
+        TST test        ; Falls test = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; Falls noch nicht 10:
+; weiterzählen
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl:   DAT 0           ; Entspricht Speicherzelle 90
+
+zehn:   DAT 10          ; Konstante 10
+
+test:   DAT 0           ; Zwischenspeicher für Vergleich

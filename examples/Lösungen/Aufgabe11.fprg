@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.18">
+  <attributes>
+    <attribute name="name" value="Fakultaet"/>
+    <attribute name="authors" value="ChatGPT"/>
+    <attribute name="about" value="Berechnung von n!"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+
+      <declare name="faktor" type="Integer" array="False" size=""/>
+      <declare name="produkt" type="Integer" array="False" size=""/>
+      <declare name="temp" type="Integer" array="False" size=""/>
+      <declare name="zaehler" type="Integer" array="False" size=""/>
+
+      <assign variable="faktor" expression="4"/>
+      <assign variable="produkt" expression="1"/>
+
+      <while expression="faktor &gt; 0">
+
+        <assign variable="temp" expression="produkt"/>
+        <assign variable="produkt" expression="0"/>
+        <assign variable="zaehler" expression="faktor"/>
+
+        <while expression="zaehler &gt; 0">
+
+          <assign variable="produkt" expression="produkt + temp"/>
+          <assign variable="zaehler" expression="zaehler - 1"/>
+
+        </while>
+
+        <assign variable="faktor" expression="faktor - 1"/>
+
+      </while>
+
+      <output expression="produkt" newline="True"/>
+
+    </body>
+  </function>
+
+</flowgorithm>

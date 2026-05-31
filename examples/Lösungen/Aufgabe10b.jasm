@@ -1,0 +1,110 @@
+; =========================================================
+; Aufgabe 10:
+; Potenz berechnen
+;
+; Berechne:
+;
+; 3^n
+;
+; durch wiederholtes Verdreifachen.
+;
+; Die Zahl n steht in Speicherzelle 90.
+;
+; Beispiel:
+;
+; n = 4
+;
+; 3^4 = 81
+;
+; Idee:
+;
+; Das Ergebnis startet mit 1.
+;
+; Danach wird das Ergebnis n-mal
+; mit 3 multipliziert.
+;
+; Da es keinen Multiplikationsbefehl gibt,
+; erfolgt die Multiplikation durch:
+;
+; x * 3 = x + x + x
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Ergebnis mit 1 starten
+; ---------------------------------------------------------
+
+        TAKE eins
+        SAVE ergebnis
+
+
+; ---------------------------------------------------------
+; Schleife:
+; Ergebnis verdreifachen
+; ---------------------------------------------------------
+
+loop:
+
+; ---------------------------------------------------------
+; Alten Ergebniswert laden
+; ---------------------------------------------------------
+
+        TAKE ergebnis
+        SAVE temp       ; Zwischenspeicher
+
+
+; ---------------------------------------------------------
+; Ergebnis = temp + temp + temp
+; ---------------------------------------------------------
+
+        TAKE temp
+
+        ADD temp
+
+        ADD temp
+
+        SAVE ergebnis
+
+
+; ---------------------------------------------------------
+; Schleifenzähler verringern
+; ---------------------------------------------------------
+
+        DEC n
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist n bereits 0?
+; ---------------------------------------------------------
+
+        TST n           ; Falls n = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; Falls noch nicht fertig:
+; weiter verdreifachen
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+n:          DAT 4       ; Entspricht Speicherzelle 90
+
+eins:       DAT 1
+
+ergebnis:   DAT 0       ; Ergebnis von 3^n
+
+temp:       DAT 0       ; Zwischenspeicher

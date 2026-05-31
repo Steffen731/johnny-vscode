@@ -1,0 +1,139 @@
+; =========================================================
+; Aufgabe 10c:
+; Potenz berechnen
+;
+; Berechne:
+;
+; x^n
+;
+; durch wiederholte Multiplikation
+; mittels Addition.
+;
+; x steht in Speicherzelle 90.
+; n steht in Speicherzelle 91.
+;
+; Beispiel:
+;
+; 3^4
+;
+; = 3 * 3 * 3 * 3
+;
+; Da es keinen Multiplikationsbefehl gibt,
+; wird Multiplikation durch wiederholte
+; Addition umgesetzt.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Ergebnis zunächst auf x setzen
+; ---------------------------------------------------------
+
+        TAKE basis
+
+        SAVE ergebnis
+
+
+; ---------------------------------------------------------
+; Bereits ein Faktor x vorhanden.
+; Deshalb:
+; exponent um 1 verringern
+; ---------------------------------------------------------
+
+        DEC exponent
+
+
+; =========================================================
+; Äußere Schleife:
+; Noch exponent-mal multiplizieren
+; =========================================================
+
+aussen:
+
+; ---------------------------------------------------------
+; Alten Ergebniswert sichern
+; ---------------------------------------------------------
+
+        TAKE ergebnis
+
+        SAVE temp
+
+
+; ---------------------------------------------------------
+; Neues Ergebnis auf 0 setzen
+; ---------------------------------------------------------
+
+        NULL ergebnis
+
+
+; ---------------------------------------------------------
+; x bestimmt,
+; wie oft temp addiert wird
+; ---------------------------------------------------------
+
+        TAKE basis
+
+        SAVE zaehler
+
+
+; =========================================================
+; Innere Schleife:
+; temp wiederholt addieren
+; =========================================================
+
+innen:
+
+        TAKE ergebnis
+
+        ADD temp
+
+        SAVE ergebnis
+
+
+; ---------------------------------------------------------
+; Schleifenzähler verringern
+; ---------------------------------------------------------
+
+        DEC zaehler
+
+
+; ---------------------------------------------------------
+; Noch nicht fertig?
+; ---------------------------------------------------------
+
+        TST zaehler
+
+        JMP innen
+
+
+; ---------------------------------------------------------
+; Äußere Schleife fortsetzen
+; ---------------------------------------------------------
+
+        DEC exponent
+
+
+        TST exponent
+
+        JMP aussen
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+basis:       DAT 3      ; x
+
+exponent:    DAT 4      ; n
+
+ergebnis:    DAT 0      ; x^n
+
+temp:        DAT 0      ; Zwischenspeicher
+
+zaehler:     DAT 0      ; Innere Schleife

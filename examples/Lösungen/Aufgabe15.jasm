@@ -1,0 +1,162 @@
+; =========================================================
+; Aufgabe 15:
+; Teilbarkeit durch 10 prüfen
+;
+; Ergebnis:
+;
+; 1 -> teilbar durch 10
+; 0 -> nicht teilbar
+;
+; Ergebnis steht in Speicherzelle 91.
+;
+; Idee:
+;
+; Gleichzeitig werden:
+; - rest
+; - zaehler
+;
+; heruntergezählt.
+;
+; Falls zuerst:
+;
+; zaehler = 0
+; -> mindestens 10 vorhanden
+;
+; rest = 0
+; -> weniger als 10 vorhanden
+;
+; Dadurch kann geprüft werden,
+; ob die Zahl exakt durch 10 teilbar ist.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Ergebnis zunächst auf 0 setzen
+; -> zunächst NICHT teilbar annehmen
+; ---------------------------------------------------------
+
+        NULL ergebnis
+
+
+; ---------------------------------------------------------
+; Arbeitskopie der Zahl erzeugen
+; ---------------------------------------------------------
+
+        TAKE zahl
+        SAVE rest
+
+
+; =========================================================
+; Hauptschleife
+; =========================================================
+
+loop:
+
+; ---------------------------------------------------------
+; Zaehler mit 10 starten
+; ---------------------------------------------------------
+
+        TAKE zehn
+        SAVE zaehler
+
+
+; =========================================================
+; Gleichzeitig herunterzählen:
+; - rest
+; - zaehler
+; =========================================================
+
+subtrahiere:
+
+        DEC rest
+        DEC zaehler
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist rest bereits 0?
+; ---------------------------------------------------------
+
+        TST rest
+                        ; Falls rest = 0:
+                        ; nächste Zeile überspringen
+
+        JMP pruefeZehn
+
+
+; ---------------------------------------------------------
+; Rest wurde zuerst 0
+; ---------------------------------------------------------
+
+        JMP teilbarTest
+
+
+; =========================================================
+; Prüfen:
+; Wurden vollständige 10 erreicht?
+; =========================================================
+
+pruefeZehn:
+
+        TST zaehler
+                        ; Falls zaehler = 0:
+                        ; nächste Zeile überspringen
+
+        JMP subtrahiere
+
+
+; ---------------------------------------------------------
+; Genau 10 abgezogen:
+; weitere Runde
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; =========================================================
+; Prüfen:
+; Teilbar oder nicht?
+; =========================================================
+
+teilbarTest:
+
+        TST zaehler
+                        ; Falls zaehler = 0:
+                        ; nächste Zeile überspringen
+
+        JMP nichtTeilbar
+
+
+; ---------------------------------------------------------
+; Teilbar durch 10
+; ---------------------------------------------------------
+
+teilbar:
+
+        INC ergebnis    ; ergebnis = 1
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Nicht teilbar
+; ---------------------------------------------------------
+
+nichtTeilbar:
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl:        DAT 53
+
+zehn:        DAT 10
+
+rest:        DAT 0
+
+zaehler:     DAT 0
+
+ergebnis:    DAT 0

@@ -1,0 +1,190 @@
+; =========================================================
+; Aufgabe 18:
+; Wiederholte Division
+;
+; Berechne eine Division durch
+; fortlaufendes Abziehen.
+;
+; Dividend steht in Speicherzelle 90.
+; Divisor steht in Speicherzelle 91.
+;
+; Ergebnis:
+;
+; quotient = Ergebnis der Division
+; rest     = verbleibender Rest
+;
+; Beispiel:
+;
+; 23 : 5
+;
+; 23 - 5 = 18
+; 18 - 5 = 13
+; 13 - 5 = 8
+; 8  - 5 = 3
+;
+; Quotient = 4
+; Rest     = 3
+;
+; Wichtig:
+;
+; JOHNNY kennt keine negativen Zahlen.
+;
+; Deshalb kann NICHT direkt geprüft werden:
+;
+; rest < divisor
+;
+; Stattdessen werden:
+; - Rest
+; - Divisor
+;
+; gleichzeitig heruntergezählt.
+;
+; Falls:
+;
+; - der Divisor zuerst 0 wird,
+;   konnte vollständig subtrahiert werden
+;
+; - der Rest zuerst 0 wird,
+;   ist die Division beendet
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Arbeitskopie erzeugen
+; ---------------------------------------------------------
+
+        TAKE dividend
+        SAVE rest
+
+
+; ---------------------------------------------------------
+; Quotient zunächst auf 0 setzen
+; ---------------------------------------------------------
+
+        NULL quotient
+
+
+; =========================================================
+; Hauptschleife
+; =========================================================
+
+loop:
+
+; ---------------------------------------------------------
+; Rest sichern
+; ---------------------------------------------------------
+
+        TAKE rest
+        SAVE tempRest
+
+
+; ---------------------------------------------------------
+; Divisor sichern
+; ---------------------------------------------------------
+
+        TAKE divisor
+        SAVE tempDivisor
+
+
+; =========================================================
+; Vergleich durch gemeinsames Dekrementieren
+; =========================================================
+
+subtrahiere:
+
+        DEC tempRest
+        DEC tempDivisor
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist Rest bereits 0?
+; ---------------------------------------------------------
+
+        TST tempRest
+                        ; Falls tempRest = 0:
+                        ; nächste Zeile überspringen
+
+        JMP pruefeDivisor
+
+
+; ---------------------------------------------------------
+; Rest zuerst 0
+; -> keine vollständige Subtraktion mehr möglich
+; =========================================================
+
+        JMP divisionEnde
+
+
+; =========================================================
+; Prüfen:
+; Ist Divisor bereits 0?
+; =========================================================
+
+pruefeDivisor:
+
+        TST tempDivisor
+                        ; Falls tempDivisor = 0:
+                        ; nächste Zeile überspringen
+
+        JMP subtrahiere
+
+
+; ---------------------------------------------------------
+; Divisor vollständig erreicht
+; -> vollständige Subtraktion möglich
+; =========================================================
+
+vollstaendig:
+
+; ---------------------------------------------------------
+; Rest = Rest - Divisor
+; ---------------------------------------------------------
+
+        TAKE rest
+
+        SUB divisor
+
+        SAVE rest
+
+
+; ---------------------------------------------------------
+; Quotient erhöhen
+; ---------------------------------------------------------
+
+        INC quotient
+
+
+; ---------------------------------------------------------
+; Weiterrechnen
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; =========================================================
+; Division beendet
+; =========================================================
+
+divisionEnde:
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+dividend:      DAT 23      ; Zu teilende Zahl
+
+divisor:       DAT 5       ; Divisor
+
+
+quotient:      DAT 0       ; Ergebnis
+
+rest:          DAT 0       ; Verbleibender Rest
+
+
+tempRest:      DAT 0       ; Hilfswert
+
+tempDivisor:   DAT 0       ; Hilfswert

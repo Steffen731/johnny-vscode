@@ -1,0 +1,90 @@
+; =========================================================
+; Aufgabe 13:
+; Vielfache von 10 zählen
+;
+; Ziehe wiederholt 10 von einer Zahl ab,
+; bis 0 erreicht wird.
+;
+; Gleichzeitig wird gezählt,
+; wie oft 10 abgezogen wurde.
+;
+; Beispiel:
+;
+; 50
+;
+; 50 - 10 = 40
+; 40 - 10 = 30
+; 30 - 10 = 20
+; 20 - 10 = 10
+; 10 - 10 = 0
+;
+; -> 10 wurde fünfmal abgezogen
+;
+; Das Ergebnis steht anschließend
+; in Speicherzelle 91.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Zähler zunächst auf 0 setzen, zahl nach tmp kopieren
+; ---------------------------------------------------------
+
+        NULL zaehler
+        TAKE zahl
+        SAVE tmp
+
+; =========================================================
+; Schleife:
+; Wiederholt 10 abziehen
+; =========================================================
+
+loop:
+
+; ---------------------------------------------------------
+; Zehnmal um 1 verringern
+; ---------------------------------------------------------
+
+        TAKE tmp
+        SUB zehn
+        SAVE tmp
+
+
+; ---------------------------------------------------------
+; Ein weiteres Vielfaches von 10 gefunden
+; ---------------------------------------------------------
+
+        INC zaehler
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist die Zahl bereits 0?
+; ---------------------------------------------------------
+
+        TST zahl
+                        ; Falls zahl = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; Falls noch nicht 0:
+; weiter subtrahieren
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl:       DAT 50      ; Entspricht Speicherzelle 90
+zehn:       DAT 10      ; Vielfache von 10
+zaehler:    DAT 0       ; Entspricht Speicherzelle 91
+tmp:        DAT 0       ; damit wird gerechnet

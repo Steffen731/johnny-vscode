@@ -1,0 +1,87 @@
+; Fibonacci-Folge mit 10 Gliedern
+; selbstmodifizierend
+;
+; Idee:
+; Der SAVE-Befehl wird durch INC verändert:
+;
+; SAVE fib0
+; SAVE fib1
+; SAVE fib2
+; ...
+;
+; Dadurch wandert die Ausgabe automatisch
+; durch den Speicher.
+
+start:
+
+        ; fib0 = 1
+        TAKE one
+        SAVE fib0
+
+        ; fib1 = 1
+        TAKE one
+        SAVE fib1
+
+        ; noch 8 weitere Zahlen berechnen
+        TAKE eight
+        SAVE counter
+
+loop:
+
+        ; neue Fibonacci-Zahl berechnen
+        TAKE a
+        ADD b
+        SAVE temp
+
+        ; Ergebnis speichern
+saveinstr:
+        SAVE fib2
+
+        ; Werte verschieben
+        TAKE b
+        SAVE a
+
+        TAKE temp
+        SAVE b
+
+        ; SAVE-Befehl verändern:
+        ; SAVE fib2 -> SAVE fib3 -> SAVE fib4 ...
+        INC saveinstr
+
+        ; Schleifenzähler
+        DEC counter
+        TST counter
+        JMP end
+
+        JMP loop
+
+end:
+        HLT 000
+
+
+; Konstanten
+
+one:       DAT 1
+eight:     DAT 8
+
+
+; Arbeitsvariablen
+
+a:         DAT 1
+b:         DAT 1
+temp:      DAT 0
+counter:   DAT 0
+
+
+; Ausgabespeicher
+
+fib0:      DAT 0
+fib1:      DAT 0
+fib2:      DAT 0
+fib3:      DAT 0
+fib4:      DAT 0
+fib5:      DAT 0
+fib6:      DAT 0
+fib7:      DAT 0
+fib8:      DAT 0
+fib9:      DAT 0

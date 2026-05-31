@@ -1,0 +1,57 @@
+; =========================================================
+; Aufgabe 4:
+; Dreifache Zahl berechnen
+;
+; Berechne das Dreifache der Zahl
+; aus Speicherzelle 90.
+;
+; Es darf nur ADD verwendet werden.
+;
+; Beispiel:
+;
+; 4 + 4 + 4 = 12
+;
+; Das Ergebnis wird in Speicherzelle 91
+; gespeichert.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Zahl zunächst laden
+; ---------------------------------------------------------
+
+        TAKE zahl       ; Wert aus Speicherzelle 90
+                        ; in den Akkumulator laden
+
+
+; ---------------------------------------------------------
+; Zahl zweimal addieren
+; ---------------------------------------------------------
+
+        ADD zahl        ; Zweites Mal addieren
+
+        ADD zahl        ; Drittes Mal addieren
+                        ; -> Dreifacher Wert entsteht
+
+
+; ---------------------------------------------------------
+; Ergebnis speichern
+; ---------------------------------------------------------
+
+        SAVE ergebnis   ; Ergebnis in Speicherzelle 91 speichern
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000         ; Programm anhalten
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl:       DAT 4       ; Entspricht Speicherzelle 90
+
+ergebnis:   DAT 0       ; Entspricht Speicherzelle 91

@@ -1,0 +1,24 @@
+; =========================================================
+; Aufgabe 1b:
+; Tausche den Inhalt von Speicherzelle 90 und 91
+; =========================================================
+
+        TAKE wert90     ; Wert aus Speicherzelle 90 laden
+        SAVE temp       ; Wert zwischenspeichern
+
+        TAKE wert91     ; Wert aus Speicherzelle 91 laden
+        SAVE wert90     ; Nach Speicherzelle 90 schreiben
+
+        TAKE temp       ; Ursprünglichen Wert aus temp laden
+        SAVE wert91     ; Nach Speicherzelle 91 schreiben
+
+        HLT 000         ; Programm beenden
+
+
+; -------------------------
+; Datenbereich
+; -------------------------
+
+wert90: DAT 10           ; entspricht Speicherzelle 90
+wert91: DAT 20           ; entspricht Speicherzelle 91
+temp:   DAT 0           ; temporärer Zwischenspeicher

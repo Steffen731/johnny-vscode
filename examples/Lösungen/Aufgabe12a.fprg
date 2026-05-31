@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name"
+               value="Fibonacci10"/>
+  </attributes>
+
+  <function name="Main"
+            type="None"
+            variable="">
+
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="a"
+               type="Integer"/>
+
+      <declare variables="b"
+               type="Integer"/>
+
+      <declare variables="temp"
+               type="Integer"/>
+
+      <declare variables="counter"
+               type="Integer"/>
+
+      <declare variables="index"
+               type="Integer"/>
+
+      <declare variables="fib"
+               type="Integer"
+               array="True"
+               size="10"/>
+
+
+      <!-- Erste Fibonacci-Zahlen -->
+
+      <assign variable="fib[0]"
+              expression="1"/>
+
+      <assign variable="fib[1]"
+              expression="1"/>
+
+
+      <!-- Arbeitswerte -->
+
+      <assign variable="a"
+              expression="1"/>
+
+      <assign variable="b"
+              expression="1"/>
+
+
+      <!-- Noch 8 Zahlen -->
+
+      <assign variable="counter"
+              expression="8"/>
+
+      <assign variable="index"
+              expression="2"/>
+
+
+      <!-- Schleife -->
+
+      <while expression="counter > 0">
+
+        <!-- Neue Fibonacci-Zahl -->
+
+        <assign variable="temp"
+                expression="a + b"/>
+
+
+        <!-- Automatisch nächstes Feld -->
+
+        <assign variable="fib[index]"
+                expression="temp"/>
+
+
+        <!-- Werte verschieben -->
+
+        <assign variable="a"
+                expression="b"/>
+
+        <assign variable="b"
+                expression="temp"/>
+
+
+        <!-- Nächste Speicherposition -->
+
+        <assign variable="index"
+                expression="index + 1"/>
+
+
+        <!-- Schleifenzähler -->
+
+        <assign variable="counter"
+                expression="counter - 1"/>
+
+      </while>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

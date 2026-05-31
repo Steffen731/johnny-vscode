@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name" value="Potenz3HochN"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="n" type="Integer"/>
+      <declare variables="ergebnis" type="Integer"/>
+      <declare variables="temp" type="Integer"/>
+
+
+      <!-- Beispielwert -->
+
+      <assign variable="n" expression="4"/>
+
+
+      <!-- Startwert:
+           3^0 = 1 -->
+
+      <assign variable="ergebnis"
+              expression="1"/>
+
+
+      <!-- Schleife -->
+
+      <while expression="n > 0">
+
+        <!-- Alten Wert merken -->
+
+        <assign variable="temp"
+                expression="ergebnis"/>
+
+
+        <!-- Verdreifachen -->
+
+        <assign variable="ergebnis"
+                expression="temp + temp + temp"/>
+
+
+        <!-- Schleifenzähler -->
+
+        <assign variable="n"
+                expression="n - 1"/>
+
+      </while>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="ergebnis"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

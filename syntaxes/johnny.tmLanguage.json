@@ -1,0 +1,22 @@
+{
+    "scopeName": "source.johnny",
+    "name": "JOHNNY",
+    "patterns": [
+      {
+        "match": ";.*$",
+        "name": "comment.line.semicolon.johnny"
+      },
+      {
+        "match": "\\b(TAKE|SAVE|ADD|SUB|TST|JMP|INC|DEC|NULL|HLT|DAT)\\b",
+        "name": "keyword.control.johnny"
+      },
+      {
+        "match": "^[a-zA-Z_][a-zA-Z0-9_]*:",
+        "name": "entity.name.label.johnny"
+      },
+      {
+        "match": "\\b[0-9]+\\b",
+        "name": "constant.numeric.johnny"
+      }
+    ]
+  }

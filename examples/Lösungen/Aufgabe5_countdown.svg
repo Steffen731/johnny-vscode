@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by Flowgorithm 4.5.0 (http://flowgorithm.org) -->
+
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="992" height="1643">
+	<rect x="0" y="0" width="992" height="1643" fill="#FFFFFF"/>
+	<g>
+		<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="217,155 217,230"/>
+		<polygon fill="#404040" stroke="none" points="217,248 234,217 199,217"/>
+		<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="217,868 217,1470"/>
+		<polygon fill="#404040" stroke="none" points="217,1488 234,1457 199,1457"/>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="4" stroke-dasharray="none" d="M 93,31 A 62 62, 0, 0 0, 93 155 L 341,155 A 62 62, 0, 0 0, 341 31 Z"/>
+			<text x="217" y="49" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="217" dy="62" unicode-bidi="embed">Anlauf</tspan>
+			</text>
+		</g>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="4" stroke-dasharray="none" d="M 93,1488 A 62 62, 0, 0 0, 93 1612 L 341,1612 A 62 62, 0, 0 0, 341 1488 Z"/>
+			<text x="217" y="1506" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="217" dy="62" unicode-bidi="embed">Ende</tspan>
+			</text>
+		</g>
+		<g>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="217,403 217,478"/>
+			<polygon fill="#404040" stroke="none" points="217,496 234,465 199,465"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="217,620 217,726"/>
+			<polygon fill="#404040" stroke="none" points="217,744 234,713 199,713"/>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 31,248 L 31,403 L 403,403 L 403,248 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="31,279 403,279"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="62,248 62,403"/>
+				<text x="232" y="297" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="232" dy="62" unicode-bidi="embed">Integer zahl</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 31,496 L 31,620 L 403,620 L 403,496 Z"/>
+				<text x="217" y="514" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="217" dy="62" unicode-bidi="embed">zahl = 5</tspan>
+				</text>
+			</g>
+			<g>
+				<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="403,806 682,806 682,912"/>
+				<polygon fill="#404040" stroke="none" points="682,930 699,899 664,899"/>
+				<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="682,1271 682,1364 279,1364 279,885"/>
+				<polygon fill="#404040" stroke="none" points="279,868 261,898 296,898"/>
+				<g>
+					<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="682,1054 682,1129"/>
+					<polygon fill="#404040" stroke="none" points="682,1147 699,1116 664,1116"/>
+					<g>
+						<path fill="#D8FFD8" stroke="#78A078" stroke-width="4" stroke-dasharray="none" d="M 465,930 L 403,1054 L 899,1054 L 961,930 Z"/>
+						<text x="682" y="948" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="682" dy="62" unicode-bidi="embed">Anzeigen: zahl</tspan>
+						</text>
+					</g>
+					<g>
+						<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 465,1147 L 465,1271 L 899,1271 L 899,1147 Z"/>
+						<text x="682" y="1165" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="682" dy="62" unicode-bidi="embed">zahl = zahl - 1</tspan>
+						</text>
+					</g>
+				</g>
+				<g>
+					<path fill="#FFE0B0" stroke="#A08050" stroke-width="4" stroke-dasharray="none" d="M 93,744 L 31,806 L 93,868 L 341,868 L 403,806 L 341,744 Z"/>
+					<text x="217" y="762" fill="#402000" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+						<tspan x="217" dy="62" unicode-bidi="embed">zahl &gt; 0</tspan>
+					</text>
+				</g>
+				<text x="496" y="700" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="496" dy="62" unicode-bidi="embed">Wahr</tspan>
+				</text>
+				<text x="108" y="886" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="108" dy="62" unicode-bidi="embed">Falsch</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>

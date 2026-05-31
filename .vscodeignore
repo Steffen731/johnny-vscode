@@ -1,0 +1,9 @@
+.vscode/**
+.vs/**
+src/**
+node_modules/**
+*.map
+tsconfig.json
+johnny_vscode_extension_mvp.md
+examples/Lösungen
+examples/Lösungen/**

@@ -1,0 +1,17 @@
+{
+    "Loop": {
+      "prefix": "loop",
+      "body": [
+        "loop:",
+        "    TAKE counter",
+        "    TST counter",
+        "    JMP end",
+        "    DEC counter",
+        "    JMP loop",
+        "",
+        "end:",
+        "    HLT 000"
+      ],
+      "description": "Simple JOHNNY loop"
+    }
+  }

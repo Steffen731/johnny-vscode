@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name"
+               value="TeilbarkeitDurch10"/>
+  </attributes>
+
+  <function name="Main"
+            type="None"
+            variable="">
+
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="zahl"
+               type="Integer"/>
+
+      <declare variables="rest"
+               type="Integer"/>
+
+      <declare variables="ergebnis"
+               type="Integer"/>
+
+
+      <!-- Beispielwert -->
+
+      <assign variable="zahl"
+              expression="53"/>
+
+
+      <!-- Arbeitskopie -->
+
+      <assign variable="rest"
+              expression="zahl"/>
+
+
+      <!-- Standard:
+           nicht teilbar -->
+
+      <assign variable="ergebnis"
+              expression="0"/>
+
+
+      <!-- Wiederholt 10 abziehen -->
+
+      <while expression="rest >= 10">
+
+        <assign variable="rest"
+                expression="rest - 10"/>
+
+      </while>
+
+
+      <!-- Prüfen -->
+
+      <if expression="rest == 0">
+
+        <then>
+
+          <!-- Teilbar -->
+
+          <assign variable="ergebnis"
+                  expression="1"/>
+
+        </then>
+
+        <else>
+
+          <!-- Nicht teilbar -->
+
+          <assign variable="ergebnis"
+                  expression="0"/>
+
+        </else>
+
+      </if>
+
+
+      <!-- Ausgabe -->
+
+      <output expression="ergebnis"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

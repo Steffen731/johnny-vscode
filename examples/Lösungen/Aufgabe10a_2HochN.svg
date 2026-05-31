@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by Flowgorithm 4.5.0 (http://flowgorithm.org) -->
+
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1302" height="2790">
+	<g>
+		<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,155 341,230"/>
+		<polygon fill="#404040" stroke="none" points="341,248 358,217 323,217"/>
+		<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,2542 341,2617"/>
+		<polygon fill="#404040" stroke="none" points="341,2635 358,2604 323,2604"/>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="4" stroke-dasharray="none" d="M 217,31 A 62 62, 0, 0 0, 217 155 L 465,155 A 62 62, 0, 0 0, 465 31 Z"/>
+			<text x="341" y="49" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="341" dy="62" unicode-bidi="embed">Anlauf</tspan>
+			</text>
+		</g>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="4" stroke-dasharray="none" d="M 217,2635 A 62 62, 0, 0 0, 217 2759 L 465,2759 A 62 62, 0, 0 0, 465 2635 Z"/>
+			<text x="341" y="2653" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="341" dy="62" unicode-bidi="embed">Ende</tspan>
+			</text>
+		</g>
+		<g>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,403 341,478"/>
+			<polygon fill="#404040" stroke="none" points="341,496 358,465 323,465"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,651 341,726"/>
+			<polygon fill="#404040" stroke="none" points="341,744 358,713 323,713"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,899 341,974"/>
+			<polygon fill="#404040" stroke="none" points="341,992 358,961 323,961"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,1116 341,1191"/>
+			<polygon fill="#404040" stroke="none" points="341,1209 358,1178 323,1178"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,1333 341,1408"/>
+			<polygon fill="#404040" stroke="none" points="341,1426 358,1395 323,1395"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,1550 341,1656"/>
+			<polygon fill="#404040" stroke="none" points="341,1674 358,1643 323,1643"/>
+			<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="341,1798 341,2400"/>
+			<polygon fill="#404040" stroke="none" points="341,2418 358,2387 323,2387"/>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 155,248 L 155,403 L 527,403 L 527,248 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="155,279 527,279"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="186,248 186,403"/>
+				<text x="356" y="297" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="356" dy="62" unicode-bidi="embed">Integer eins</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 93,496 L 93,651 L 589,651 L 589,496 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="93,527 589,527"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="124,496 124,651"/>
+				<text x="356" y="545" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="356" dy="62" unicode-bidi="embed">Integer exponent</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 93,744 L 93,899 L 589,899 L 589,744 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="93,775 589,775"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" points="124,744 124,899"/>
+				<text x="356" y="793" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="356" dy="62" unicode-bidi="embed">Integer produkt</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 155,992 L 155,1116 L 527,1116 L 527,992 Z"/>
+				<text x="341" y="1010" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="341" dy="62" unicode-bidi="embed">eins = 1</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 155,1209 L 155,1333 L 527,1333 L 527,1209 Z"/>
+				<text x="341" y="1227" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="341" dy="62" unicode-bidi="embed">exponent = 4</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 155,1426 L 155,1550 L 527,1550 L 527,1426 Z"/>
+				<text x="341" y="1444" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="341" dy="62" unicode-bidi="embed">produkt = 1</tspan>
+				</text>
+			</g>
+			<g>
+				<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="589,1736 899,1736 899,1842"/>
+				<polygon fill="#404040" stroke="none" points="899,1860 916,1829 881,1829"/>
+				<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="899,2201 899,2294 403,2294 403,1815"/>
+				<polygon fill="#404040" stroke="none" points="403,1798 385,1828 420,1828"/>
+				<g>
+					<polyline fill="none" stroke="#404040" stroke-width="8" stroke-dasharray="none" points="899,1984 899,2059"/>
+					<polygon fill="#404040" stroke="none" points="899,2077 916,2046 881,2046"/>
+					<g>
+						<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 527,1860 L 527,1984 L 1271,1984 L 1271,1860 Z"/>
+						<text x="899" y="1878" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="899" dy="62" unicode-bidi="embed">produkt = produkt + produkt</tspan>
+						</text>
+					</g>
+					<g>
+						<path fill="#FFFFD8" stroke="#A0A078" stroke-width="4" stroke-dasharray="none" d="M 589,2077 L 589,2201 L 1209,2201 L 1209,2077 Z"/>
+						<text x="899" y="2095" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="899" dy="62" unicode-bidi="embed">exponent = exponent - 1</tspan>
+						</text>
+					</g>
+				</g>
+				<g>
+					<path fill="#FFE0B0" stroke="#A08050" stroke-width="4" stroke-dasharray="none" d="M 155,1674 L 93,1736 L 155,1798 L 527,1798 L 589,1736 L 527,1674 Z"/>
+					<text x="341" y="1692" fill="#402000" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+						<tspan x="341" dy="62" unicode-bidi="embed">exponent &gt; 0</tspan>
+					</text>
+				</g>
+				<text x="682" y="1630" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="682" dy="62" unicode-bidi="embed">Wahr</tspan>
+				</text>
+				<text x="232" y="1816" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="232" dy="62" unicode-bidi="embed">Falsch</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#D8FFD8" stroke="#78A078" stroke-width="4" stroke-dasharray="none" d="M 93,2418 L 31,2542 L 589,2542 L 651,2418 Z"/>
+				<text x="341" y="2436" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="341" dy="62" unicode-bidi="embed">Anzeigen: produkt</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>

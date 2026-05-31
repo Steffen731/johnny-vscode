@@ -1,0 +1,72 @@
+; =========================================================
+; Aufgabe 8:
+; Multiplikation durch wiederholte Addition
+;
+; Berechne:
+;       faktor1 * faktor2
+;
+; Verwendetes Prinzip:
+;       produkt = produkt + faktor1
+;
+; Dieser Vorgang wird faktor2-mal wiederholt.
+;
+; Ergebnis:
+;       produkt enthält nach Programmende
+;       das Multiplikationsergebnis.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Produkt zunächst auf 0 setzen
+; ---------------------------------------------------------
+
+        TAKE produkt    ; Aktuellen Inhalt laden
+        SUB produkt     ; Wert von sich selbst abziehen
+                        ; -> Akkumulator wird 0
+
+        SAVE produkt    ; 0 in produkt speichern
+
+
+; ---------------------------------------------------------
+; Schleife
+; ---------------------------------------------------------
+
+loop:
+
+        TAKE produkt    ; Bisherige Zwischensumme laden
+
+        ADD faktor1     ; faktor1 addieren
+                        ; -> neue Zwischensumme entsteht
+
+        SAVE produkt    ; Neue Zwischensumme speichern
+
+
+        DEC faktor2     ; Schleifenzähler um 1 verringern
+
+
+        TST faktor2     ; Prüfen:
+                        ; Ist faktor2 = 0 ?
+                        ;
+                        ; Falls JA:
+                        ; nächste Zeile wird übersprungen
+                        ;
+                        ; Falls NEIN:
+                        ; JMP wird ausgeführt
+
+        JMP loop        ; Zurück zum Schleifenanfang
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000         ; Programm stoppen
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+faktor1: DAT 7          ; Erste Zahl
+faktor2: DAT 9          ; Zweite Zahl / Schleifenzähler
+produkt: DAT 0          ; Ergebnis der Multiplikation

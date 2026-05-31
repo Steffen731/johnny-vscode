@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name" value="SummeVon1BisN"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="n" type="Integer"/>
+      <declare variables="summe" type="Integer"/>
+
+
+      <!-- Startwerte -->
+
+      <assign variable="n" expression="5"/>
+
+      <assign variable="summe" expression="0"/>
+
+
+      <!-- Schleife -->
+
+      <while expression="n > 0">
+
+        <!-- Aktuellen Wert addieren -->
+
+        <assign variable="summe"
+                expression="summe + n"/>
+
+        <!-- n verringern -->
+
+        <assign variable="n"
+                expression="n - 1"/>
+
+      </while>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="summe"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

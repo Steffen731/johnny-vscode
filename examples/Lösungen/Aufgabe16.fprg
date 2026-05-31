@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name"
+               value="VergleichDurchDekrementieren"/>
+  </attributes>
+
+  <function name="Main"
+            type="None"
+            variable="">
+
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="a"
+               type="Integer"/>
+
+      <declare variables="b"
+               type="Integer"/>
+
+      <declare variables="ergebnis"
+               type="Integer"/>
+
+
+      <!-- Beispielwerte -->
+
+      <assign variable="a"
+              expression="5"/>
+
+      <assign variable="b"
+              expression="6"/>
+
+
+      <!-- Ergebnis:
+           0 = gleich
+           1 = A größer
+           2 = B größer -->
+
+      <assign variable="ergebnis"
+              expression="0"/>
+
+
+      <!-- Beide gleichzeitig herunterzählen -->
+
+      <while expression="a > 0">
+
+        <if expression="b == 0">
+
+          <then>
+
+            <!-- B zuerst 0:
+                 A größer -->
+
+            <assign variable="ergebnis"
+                    expression="1"/>
+
+          </then>
+
+          <else>
+
+            <!-- Beide weiter dekrementieren -->
+
+            <assign variable="a"
+                    expression="a - 1"/>
+
+            <assign variable="b"
+                    expression="b - 1"/>
+
+          </else>
+
+        </if>
+
+      </while>
+
+
+      <!-- Prüfen:
+           A zuerst 0? -->
+
+      <if expression="b > 0">
+
+        <then>
+
+          <!-- B größer -->
+
+          <assign variable="ergebnis"
+                  expression="2"/>
+
+        </then>
+
+        <else>
+
+          <!-- gleich -->
+
+          <assign variable="ergebnis"
+                  expression="0"/>
+
+        </else>
+
+      </if>
+
+
+      <!-- Ausgabe -->
+
+      <output expression="ergebnis"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

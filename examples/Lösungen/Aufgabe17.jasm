@@ -1,0 +1,209 @@
+; =========================================================
+; Aufgabe 17:
+; Größten gemeinsamen Teiler berechnen
+;
+; Berechne den ggT zweier Zahlen
+; durch gleichzeitiges Dekrementieren.
+;
+; Zahl A steht in Speicherzelle 90.
+; Zahl B steht in Speicherzelle 91.
+;
+; Beispiel:
+;
+; A = 48
+; B = 18
+;
+; 48 - 18 = 30
+; 30 - 18 = 12
+; 18 - 12 = 6
+; 12 - 6  = 6
+; 6  - 6  = 0
+;
+; ggT = 6
+;
+; Idee:
+;
+; Beide Zahlen werden gleichzeitig
+; heruntergezählt.
+;
+; Gleichzeitig zählt "differenz" mit,
+; wie oft beide Zahlen gemeinsam
+; dekrementiert wurden.
+;
+; Falls:
+;
+; - A zuerst 0 wird,
+;   dann war B größer.
+;   A wird durch differenz ersetzt.
+;
+; - B zuerst 0 wird,
+;   dann war A größer.
+;   B wird durch differenz ersetzt.
+;
+; - Beide gleichzeitig 0 werden,
+;   dann ist differenz der ggT.
+;
+; Dadurch wird schrittweise immer
+; die größere Zahl verkleinert,
+; bis beide Zahlen gleich groß sind.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Arbeitskopien erzeugen
+; ---------------------------------------------------------
+
+        TAKE zahlA
+        SAVE a
+
+        TAKE zahlB
+        SAVE b
+
+
+; =========================================================
+; Hauptschleife
+; =========================================================
+
+loop:
+
+; ---------------------------------------------------------
+; Beide Zahlen gleichzeitig verringern
+; ---------------------------------------------------------
+
+        DEC a
+        DEC b
+
+
+; ---------------------------------------------------------
+; Mitzaehlen,
+; wie oft gemeinsam dekrementiert wurde
+; ---------------------------------------------------------
+
+        INC differenz
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist A bereits 0?
+; ---------------------------------------------------------
+
+        TST a
+                        ; Falls a = 0:
+                        ; nächste Zeile überspringen
+
+        JMP pruefeB
+
+
+; ---------------------------------------------------------
+; A wurde zuerst 0
+; Prüfen:
+; Ist B ebenfalls 0?
+; ---------------------------------------------------------
+
+        TST b
+                        ; Falls b = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; B noch nicht 0
+; -> B war größer
+; -> A durch differenz ersetzen
+; ---------------------------------------------------------
+
+        JMP ersetzeADurchDifferenz
+
+
+; ---------------------------------------------------------
+; Beide gleichzeitig 0
+; -> differenz ist der ggT
+; ---------------------------------------------------------
+
+        TAKE differenz
+
+        SAVE ggt
+
+        HLT 000
+
+
+; =========================================================
+; Prüfen:
+; Ist B bereits 0?
+; =========================================================
+
+pruefeB:
+
+        TST b
+                        ; Falls b = 0:
+                        ; nächste Zeile überspringen
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; B wurde zuerst 0
+; -> A war größer
+; -> B durch differenz ersetzen
+; ---------------------------------------------------------
+
+        JMP ersetzeBDurchDifferenz
+
+
+; =========================================================
+; A durch differenz ersetzen
+; =========================================================
+
+ersetzeADurchDifferenz:
+
+        TAKE differenz
+
+        SAVE a
+
+
+; ---------------------------------------------------------
+; differenz zurücksetzen
+; ---------------------------------------------------------
+
+        NULL differenz
+
+        JMP loop
+
+
+; =========================================================
+; B durch differenz ersetzen
+; =========================================================
+
+ersetzeBDurchDifferenz:
+
+        TAKE differenz
+
+        SAVE b
+
+
+; ---------------------------------------------------------
+; differenz zurücksetzen
+; ---------------------------------------------------------
+
+        NULL differenz
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahlA:      DAT 48      ; Erste Zahl
+
+zahlB:      DAT 18      ; Zweite Zahl
+
+
+a:          DAT 0       ; Arbeitswert A
+
+b:          DAT 0       ; Arbeitswert B
+
+
+differenz:  DAT 0       ; Gemeinsamer Dekrementierzaehler
+
+
+ggt:        DAT 0       ; Ergebnis

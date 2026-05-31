@@ -1,0 +1,114 @@
+; =========================================================
+; Aufgabe 11:
+; Fakultät berechnen
+;
+; Berechne:
+;       n!
+;
+; Beispiel:
+;       4! = 4 * 3 * 2 * 1 = 24
+;
+; Einschränkung:
+;       Multiplikation darf nur durch
+;       wiederholte Addition erfolgen.
+;
+; Idee:
+;
+; produkt = produkt * faktor
+;
+; Die Multiplikation selbst wird als Schleife
+; aus wiederholten Additionen umgesetzt.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Initialisierung
+; ---------------------------------------------------------
+
+        TAKE produkt    ; produkt vorbereiten
+        SUB produkt
+        ADD eins
+        SAVE produkt    ; produkt = 1
+
+
+; =========================================================
+; Äußere Schleife:
+; produkt mit faktor multiplizieren
+; =========================================================
+
+outer_loop:
+
+        TST faktor      ; faktor = 0 ?
+                        ; Falls JA:
+                        ; Programm beenden
+
+        JMP multiply    ; Sonst multiplizieren
+
+        HLT 000         ; Ende
+
+
+; =========================================================
+; Multiplikation vorbereiten
+; temp = produkt
+; produkt = 0
+; zaehler = faktor
+; =========================================================
+
+multiply:
+
+        TAKE produkt
+        SAVE temp       ; Alten Produktwert sichern
+
+
+        TAKE produkt
+        SUB produkt
+        SAVE produkt    ; produkt = 0
+
+
+        TAKE faktor
+        SAVE zaehler    ; Inneren Schleifenzähler setzen
+
+
+; =========================================================
+; Innere Schleife:
+; produkt = produkt + temp
+; =========================================================
+
+inner_loop:
+
+        TAKE produkt
+        ADD temp
+        SAVE produkt    ; Zwischensumme speichern
+
+
+        DEC zaehler     ; Schleifenzähler verringern
+
+
+        TST zaehler     ; zaehler = 0 ?
+                        ; Falls JA:
+                        ; nächste Zeile überspringen
+
+        JMP inner_loop
+
+
+; ---------------------------------------------------------
+; Nächsten Faktor vorbereiten
+; ---------------------------------------------------------
+
+        DEC faktor      ; faktor um 1 verringern
+
+        JMP outer_loop  ; Nächste Multiplikation
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+eins:      DAT 1        ; Konstante 1
+
+faktor:    DAT 4        ; n
+
+produkt:   DAT 0        ; Ergebnis n!
+
+temp:      DAT 0        ; Zwischenspeicher
+zaehler:   DAT 0        ; Zähler für innere Schleife

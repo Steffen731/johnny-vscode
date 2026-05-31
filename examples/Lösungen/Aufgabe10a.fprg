@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name" value="Potenz2HochN"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="eins" type="Integer"/>
+      <declare variables="exponent" type="Integer"/>
+      <declare variables="produkt" type="Integer"/>
+
+
+      <!-- Initialisierung -->
+
+      <assign variable="eins"
+              expression="1"/>
+
+      <assign variable="exponent"
+              expression="4"/>
+
+      <assign variable="produkt"
+              expression="1"/>
+
+
+      <!-- Schleife:
+           produkt = produkt + produkt -->
+
+      <while expression="exponent > 0">
+
+        <!-- Verdoppeln -->
+
+        <assign variable="produkt"
+                expression="produkt + produkt"/>
+
+        <!-- Schleifenzähler -->
+
+        <assign variable="exponent"
+                expression="exponent - 1"/>
+
+      </while>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="produkt"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

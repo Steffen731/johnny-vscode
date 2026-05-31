@@ -1,0 +1,116 @@
+; =========================================================
+; Aufgabe 9:
+; Gerade oder ungerade?
+;
+; Prüfe die Zahl aus Speicherzelle 90.
+;
+; Schreibe:
+;
+; 1 -> falls die Zahl gerade ist
+; 0 -> falls die Zahl ungerade ist
+;
+; Das Ergebnis wird in Speicherzelle 91
+; gespeichert.
+;
+; Idee:
+;
+; Eine gerade Zahl kann man vollständig
+; durch wiederholtes Subtrahieren von 2
+; auf 0 bringen.
+;
+; Eine ungerade Zahl endet bei 1.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Ergebnis zunächst auf 0 setzen
+; -> zunächst wird "ungerade" angenommen
+; ---------------------------------------------------------
+
+        NULL ergebnis
+
+
+; ---------------------------------------------------------
+; Schleife:
+; Immer 2 abziehen
+; ---------------------------------------------------------
+
+loop:
+
+        DEC zahl        ; -1
+        DEC zahl        ; -2
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist die Zahl jetzt 0?
+; ---------------------------------------------------------
+
+        TST zahl        ; Falls zahl = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; Falls noch nicht 0:
+; weiter prüfen
+; ---------------------------------------------------------
+
+        JMP pruefe1
+
+
+; ---------------------------------------------------------
+; Zahl war gerade
+; ---------------------------------------------------------
+
+gerade:
+
+        INC ergebnis    ; ergebnis = 1
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist die Zahl jetzt 1?
+; ---------------------------------------------------------
+
+pruefe1:
+
+        TAKE zahl
+
+        SUB eins        ; zahl - 1 berechnen
+
+        SAVE test
+
+
+        TST test        ; Falls test = 0:
+                        ; zahl war 1
+                        ; -> ungerade
+
+
+; ---------------------------------------------------------
+; Falls weder 0 noch 1:
+; weiter subtrahieren
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Zahl war ungerade
+; ---------------------------------------------------------
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl:       DAT 8       ; Entspricht Speicherzelle 90
+
+ergebnis:   DAT 0       ; Entspricht Speicherzelle 91
+
+eins:       DAT 1
+
+test:       DAT 0

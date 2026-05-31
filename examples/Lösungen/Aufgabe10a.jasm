@@ -1,0 +1,75 @@
+; =========================================================
+; Aufgabe 10:
+; Potenz berechnen
+;
+; Berechne:
+;       2^n
+;
+; Prinzip:
+;       Wiederholtes Verdoppeln
+;
+; Beispiel:
+;       n = 4
+;
+;       1 -> 2 -> 4 -> 8 -> 16
+;
+; Ergebnis:
+;       produkt enthält 2^n
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Initialisierung
+; ---------------------------------------------------------
+
+        TAKE produkt    ; Inhalt von produkt laden
+        SUB produkt     ; produkt - produkt = 0
+                        ; -> Akkumulator wird 0
+
+        ADD eins        ; 1 addieren
+                        ; Startwert für 2^0
+
+        SAVE produkt    ; produkt = 1
+
+
+; ---------------------------------------------------------
+; Schleife:
+; produkt = produkt + produkt
+; ---------------------------------------------------------
+
+loop:
+
+        TAKE produkt    ; Aktuellen Wert laden
+
+        ADD produkt     ; Wert mit sich selbst addieren
+                        ; -> Verdopplung
+
+        SAVE produkt    ; Verdoppelten Wert speichern
+
+
+        DEC exponent    ; Schleifenzähler um 1 verringern
+
+
+        TST exponent    ; Prüfen:
+                        ; exponent = 0 ?
+                        ;
+                        ; Falls JA:
+                        ; nächste Zeile überspringen
+
+        JMP loop        ; Sonst weiter verdoppeln
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000         ; Programm anhalten
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+eins:      DAT 1        ; Konstante 1
+exponent:  DAT 4        ; n
+produkt:   DAT 0        ; Ergebnis: 2^n

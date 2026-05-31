@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name"
+               value="VielfacheVon10"/>
+  </attributes>
+
+  <function name="Main"
+            type="None"
+            variable="">
+
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="zahl"
+               type="Integer"/>
+
+      <declare variables="tmp"
+               type="Integer"/>
+
+      <declare variables="zaehler"
+               type="Integer"/>
+
+
+      <!-- Beispielwert -->
+
+      <assign variable="zahl"
+              expression="50"/>
+
+
+      <!-- Zähler auf 0 setzen -->
+
+      <assign variable="zaehler"
+              expression="0"/>
+
+
+      <!-- Arbeitskopie -->
+
+      <assign variable="tmp"
+              expression="zahl"/>
+
+
+      <!-- Schleife -->
+
+      <while expression="tmp <> 0">
+
+        <!-- 10 abziehen -->
+
+        <assign variable="tmp"
+                expression="tmp - 10"/>
+
+
+        <!-- Anzahl mitzählen -->
+
+        <assign variable="zaehler"
+                expression="zaehler + 1"/>
+
+      </while>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="zaehler"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

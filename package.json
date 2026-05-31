@@ -1,0 +1,57 @@
+{
+  "name": "johnny-vscode",
+  "displayName": "JOHNNY Assembler",
+  "description": "VS Code support for JOHNNY assembly",
+  "version": "0.0.1",
+  "publisher": "johnny",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "johnny",
+        "aliases": ["JOHNNY"],
+        "extensions": [".jasm"],
+        "configuration": "./language-configuration.json"
+      },
+
+      {
+        "id": "johnnyram",
+        "aliases": ["JOHNNY RAM"],
+        "extensions": [".ram"]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "johnny",
+        "scopeName": "source.johnny",
+        "path": "./syntaxes/johnny.tmLanguage.json"
+      },
+
+      {
+        "language": "johnnyram",
+        "scopeName": "source.johnnyram",
+        "path": "./syntaxes/johnnyram.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "johnny.assemble",
+        "title": "JOHNNY: Assemble File"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}

@@ -1,0 +1,55 @@
+; =========================================================
+; Aufgabe 5:
+; Countdown bis 0
+;
+; Verringere den Wert aus Speicherzelle 90
+; schrittweise bis 0.
+;
+; Beispiel:
+;
+; 5 -> 4 -> 3 -> 2 -> 1 -> 0
+;
+; Der aktuelle Wert bleibt dabei immer
+; in Speicherzelle 90 gespeichert.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Schleifenbeginn
+; ---------------------------------------------------------
+
+loop:
+
+        DEC zahl        ; Wert in Speicherzelle 90
+                        ; um 1 verringern
+
+
+; ---------------------------------------------------------
+; Prüfen:
+; Ist die Zahl bereits 0?
+; ---------------------------------------------------------
+
+        TST zahl        ; Falls zahl = 0:
+                        ; nächste Zeile überspringen
+
+
+; ---------------------------------------------------------
+; Falls noch nicht 0:
+; Zurück zum Schleifenanfang
+; ---------------------------------------------------------
+
+        JMP loop
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000         ; Programm anhalten
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl: DAT 5             ; Entspricht Speicherzelle 90

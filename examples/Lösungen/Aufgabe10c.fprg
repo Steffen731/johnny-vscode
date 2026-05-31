@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name" value="PotenzXHochN"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="x" type="Integer"/>
+      <declare variables="n" type="Integer"/>
+      <declare variables="ergebnis" type="Integer"/>
+      <declare variables="temp" type="Integer"/>
+      <declare variables="zaehler" type="Integer"/>
+
+
+      <!-- Beispielwerte -->
+
+      <assign variable="x" expression="3"/>
+
+      <assign variable="n" expression="4"/>
+
+
+      <!-- Ergebnis startet mit x -->
+
+      <assign variable="ergebnis"
+              expression="x"/>
+
+
+      <!-- Ein Faktor bereits verwendet -->
+
+      <assign variable="n"
+              expression="n - 1"/>
+
+
+      <!-- Äußere Schleife -->
+
+      <while expression="n > 0">
+
+        <!-- Alten Wert merken -->
+
+        <assign variable="temp"
+                expression="ergebnis"/>
+
+
+        <!-- Neues Ergebnis vorbereiten -->
+
+        <assign variable="ergebnis"
+                expression="0"/>
+
+
+        <!-- Anzahl der Additionen -->
+
+        <assign variable="zaehler"
+                expression="x"/>
+
+
+        <!-- Innere Schleife -->
+
+        <while expression="zaehler > 0">
+
+          <!-- Wiederholt addieren -->
+
+          <assign variable="ergebnis"
+                  expression="ergebnis + temp"/>
+
+          <!-- Schleifenzähler -->
+
+          <assign variable="zaehler"
+                  expression="zaehler - 1"/>
+
+        </while>
+
+
+        <!-- Nächste Multiplikation -->
+
+        <assign variable="n"
+                expression="n - 1"/>
+
+      </while>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="ergebnis"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

@@ -1,0 +1,9 @@
+start:
+    TAKE value1
+    ADX value2
+    SAVE result
+
+value1: DAT 50000
+value1: DAT 3
+
+    JMP missingLabel

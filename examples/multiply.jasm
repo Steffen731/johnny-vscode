@@ -1,0 +1,21 @@
+; Multiplikation zweier Zahlen
+
+        NULL result
+
+loop:
+        TAKE result
+        ADD factor1
+        SAVE result
+
+        DEC factor2
+        TST factor2
+        JMP end
+
+        JMP loop
+
+end:
+        HLT 000
+
+factor1: DAT 5
+factor2: DAT 3
+result:  DAT 0

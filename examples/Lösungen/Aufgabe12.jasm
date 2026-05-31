@@ -1,0 +1,190 @@
+; =========================================================
+; Aufgabe 12:
+; Fibonacci-Folge berechnen
+;
+; Aufbau der Fibonacci-Folge:
+;
+; 1, 1, 2, 3, 5, 8, 13, ...
+;
+; Jede neue Zahl entsteht aus:
+;
+; neue Zahl = vorherige Zahl + aktuelle Zahl
+;
+; Beispiel:
+;
+; 1 + 1 = 2
+; 1 + 2 = 3
+; 2 + 3 = 5
+;
+; Das Programm berechnet die ersten
+; 10 Fibonacci-Zahlen und speichert sie.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Erste zwei Fibonacci-Zahlen
+; ---------------------------------------------------------
+
+        TAKE eins
+        SAVE fib0       ; fib0 = 1
+
+        SAVE fib1       ; fib1 = 1
+
+
+; ---------------------------------------------------------
+; Startwerte vorbereiten
+; ---------------------------------------------------------
+
+        SAVE vorher     ; vorher = 1
+        SAVE aktuell    ; aktuell = 1
+
+
+; =========================================================
+; Fibonacci-Zahl 2 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib2
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 3 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib3
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 4 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib4
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 5 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib5
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 6 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib6
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 7 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib7
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 8 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib8
+
+        TAKE aktuell
+        SAVE vorher
+
+        TAKE neu
+        SAVE aktuell
+
+
+; =========================================================
+; Fibonacci-Zahl 9 berechnen
+; =========================================================
+
+        TAKE vorher
+        ADD aktuell
+        SAVE neu
+        SAVE fib9
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+eins:      DAT 1
+
+vorher:    DAT 0
+aktuell:   DAT 0
+neu:       DAT 0
+
+fib0: DAT 0
+fib1: DAT 0
+fib2: DAT 0
+fib3: DAT 0
+fib4: DAT 0
+fib5: DAT 0
+fib6: DAT 0
+fib7: DAT 0
+fib8: DAT 0
+fib9: DAT 0

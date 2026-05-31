@@ -1,0 +1,18 @@
+{
+  "scopeName": "source.johnnyram",
+  "name": "JOHNNY RAM",
+
+  "patterns": [
+
+    {
+      "match": ";.*$",
+      "name": "comment.line.semicolon.johnnyram"
+    },
+
+    {
+      "match": "\\b[0-9]{5}\\b",
+      "name": "constant.numeric.johnnyram"
+    }
+
+  ]
+}

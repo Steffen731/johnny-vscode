@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name" value="GeradeOderUngerade"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="zahl" type="Integer"/>
+      <declare variables="ergebnis" type="Integer"/>
+
+
+      <!-- Beispielwert -->
+
+      <assign variable="zahl" expression="8"/>
+
+
+      <!-- Zunächst ungerade annehmen -->
+
+      <assign variable="ergebnis" expression="0"/>
+
+
+      <!-- Solange größer als 1 -->
+
+      <while expression="zahl > 1">
+
+        <!-- Immer 2 abziehen -->
+
+        <assign variable="zahl"
+                expression="zahl - 2"/>
+
+      </while>
+
+
+      <!-- Prüfen -->
+
+      <if expression="zahl == 0">
+
+        <then>
+
+          <!-- Gerade -->
+
+          <assign variable="ergebnis"
+                  expression="1"/>
+
+        </then>
+
+        <else>
+
+          <!-- Ungerade -->
+
+          <assign variable="ergebnis"
+                  expression="0"/>
+
+        </else>
+
+      </if>
+
+
+      <!-- Ergebnis ausgeben -->
+
+      <output expression="ergebnis"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>

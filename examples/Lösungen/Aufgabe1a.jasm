@@ -1,0 +1,20 @@
+; =========================================================
+; Aufgabe 1a:
+; Kopiere den Inhalt von Speicherzelle 90 nach 91
+; =========================================================
+
+        TAKE wert90     ; Wert aus Speicherzelle 90
+                        ; in den Akkumulator laden
+
+        SAVE wert91     ; Inhalt des Akkumulators
+                        ; in Speicherzelle 91 speichern
+
+        HLT 000         ; Programm beenden
+
+
+; -------------------------
+; Datenbereich
+; -------------------------
+
+wert90: DAT 10           ; entspricht Speicherzelle 90
+wert91: DAT 20           ; entspricht Speicherzelle 91

@@ -1,0 +1,50 @@
+; =========================================================
+; Aufgabe 2:
+; Zwei Zahlen addieren
+;
+; Addiere die Werte aus den
+; Speicherzellen 90 und 91.
+;
+; Speichere das Ergebnis
+; in Speicherzelle 92.
+; =========================================================
+
+
+; ---------------------------------------------------------
+; Erste Zahl laden
+; ---------------------------------------------------------
+
+        TAKE zahl1      ; Wert aus Speicherzelle 90
+                        ; in den Akkumulator laden
+
+
+; ---------------------------------------------------------
+; Zweite Zahl addieren
+; ---------------------------------------------------------
+
+        ADD zahl2       ; Wert aus Speicherzelle 91
+                        ; zum Akkumulator addieren
+
+
+; ---------------------------------------------------------
+; Ergebnis speichern
+; ---------------------------------------------------------
+
+        SAVE ergebnis   ; Summe in Speicherzelle 92 speichern
+
+
+; ---------------------------------------------------------
+; Programmende
+; ---------------------------------------------------------
+
+        HLT 000         ; Programm anhalten
+
+
+; ---------------------------------------------------------
+; Datenbereich
+; ---------------------------------------------------------
+
+zahl1:     DAT 7        ; Entspricht Speicherzelle 90
+zahl2:     DAT 5        ; Entspricht Speicherzelle 91
+
+ergebnis:  DAT 0        ; Entspricht Speicherzelle 92

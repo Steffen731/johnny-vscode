@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flowgorithm fileversion="2.18">
+  <attributes>
+    <attribute name="name" value="Countdown"/>
+  </attributes>
+
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+
+      <declare name="zahl" type="Integer" array="False"/>
+
+      <assign variable="zahl" expression="5"/>
+
+      <while expression="zahl > 0">
+
+        <output expression="zahl" newline="True"/>
+
+        <assign variable="zahl" expression="zahl - 1"/>
+
+      </while>
+
+    </body>
+  </function>
+</flowgorithm>

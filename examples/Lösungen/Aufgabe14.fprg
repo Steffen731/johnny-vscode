@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="1.0">
+
+  <attributes>
+    <attribute name="name"
+               value="ZahlZerlegen"/>
+  </attributes>
+
+  <function name="Main"
+            type="None"
+            variable="">
+
+    <parameters/>
+
+    <body>
+
+      <!-- Variablen -->
+
+      <declare variables="zahl"
+               type="Integer"/>
+
+      <declare variables="rest"
+               type="Integer"/>
+
+      <declare variables="zehner"
+               type="Integer"/>
+
+
+      <!-- Beispielwert -->
+
+      <assign variable="zahl"
+              expression="47"/>
+
+
+      <!-- Arbeitskopie -->
+
+      <assign variable="rest"
+              expression="zahl"/>
+
+
+      <!-- Zehnerzähler -->
+
+      <assign variable="zehner"
+              expression="0"/>
+
+
+      <!-- Solange mindestens 10 vorhanden -->
+
+      <while expression="rest >= 10">
+
+        <!-- Einen Zehner entfernen -->
+
+        <assign variable="rest"
+                expression="rest - 10"/>
+
+
+        <!-- Zehner mitzählen -->
+
+        <assign variable="zehner"
+                expression="zehner + 1"/>
+
+      </while>
+
+
+      <!-- Ergebnisse ausgeben -->
+
+      <output expression="zehner"/>
+
+      <output expression="rest"/>
+
+    </body>
+
+  </function>
+
+</flowgorithm>
