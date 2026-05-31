@@ -1,59 +1,88 @@
 ; Fibonacci-Folge mit 10 Gliedern
-; selbstmodifizierend
+; selbstmodifizierender JOHNNY-Code
 ;
-; Idee:
-; Der SAVE-Befehl wird durch INC verändert:
+; Der SAVE-Befehl verändert durch INC
+; seine eigene Zieladresse:
 ;
-; SAVE fib0
-; SAVE fib1
 ; SAVE fib2
+; SAVE fib3
+; SAVE fib4
 ; ...
 ;
-; Dadurch wandert die Ausgabe automatisch
-; durch den Speicher.
+; Dadurch werden die Fibonacci-Zahlen
+; automatisch in aufeinanderfolgende
+; Speicherzellen geschrieben.
+
 
 start:
 
-        ; fib0 = 1
+        ; Erste Fibonacci-Zahl speichern
+
         TAKE one
         SAVE fib0
 
-        ; fib1 = 1
+        ; Zweite Fibonacci-Zahl speichern
+
         TAKE one
         SAVE fib1
 
-        ; noch 8 weitere Zahlen berechnen
+        ; Arbeitsvariablen initialisieren
+
+        TAKE one
+        SAVE a
+
+        TAKE one
+        SAVE b
+
+        ; Noch 8 Zahlen berechnen
+
         TAKE eight
         SAVE counter
 
+
 loop:
 
-        ; neue Fibonacci-Zahl berechnen
+        ; Neue Fibonacci-Zahl berechnen
+
         TAKE a
         ADD b
         SAVE temp
 
         ; Ergebnis speichern
+        ; Dieser Befehl verändert sich selbst
+
 saveinstr:
         SAVE fib2
 
         ; Werte verschieben
+
         TAKE b
         SAVE a
 
         TAKE temp
         SAVE b
 
-        ; SAVE-Befehl verändern:
-        ; SAVE fib2 -> SAVE fib3 -> SAVE fib4 ...
+        ; Selbstmodifikation:
+        ;
+        ; SAVE fib2
+        ; SAVE fib3
+        ; SAVE fib4
+        ; ...
+
         INC saveinstr
 
-        ; Schleifenzähler
+        ; Schleifenzähler verringern
+
         DEC counter
+
+        ; Falls counter = 0:
+        ; nächsten Befehl überspringen
+
         TST counter
+        JMP loop
+
         JMP end
 
-        JMP loop
 
 end:
         HLT 000
@@ -69,11 +98,13 @@ eight:     DAT 8
 
 a:         DAT 1
 b:         DAT 1
+
 temp:      DAT 0
+
 counter:   DAT 0
 
 
-; Ausgabespeicher
+; Ausgabebereich
 
 fib0:      DAT 0
 fib1:      DAT 0
