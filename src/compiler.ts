@@ -1,8 +1,8 @@
 import { parse } from "./parser";
 import { analyze } from "./semanticAnalyzer";
 
-import { assembleJohnny }
-    from "./backends/johnnyBackend";
+import { assembleJohnny } from "./backends/johnnyBackend";
+import { assembleMops } from "./backends/mopsBackend";
 
 export function compile(
     source: string
@@ -25,8 +25,8 @@ export function compile(
 
         case "mops":
 
-            throw new Error(
-                "MOPS backend not implemented yet."
+            return assembleMops(
+                program
             );
 
         default:
