@@ -1,7 +1,9 @@
 import { ParsedProgram } from "../model";
+import { SemanticInfo } from "../semanticAnalyzer";
 
 export function assembleMops(
-    program: ParsedProgram
+    program: ParsedProgram,
+    semanticInfo: SemanticInfo
 ): string[] {
 
     const output: string[] = [];

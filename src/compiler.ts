@@ -12,7 +12,7 @@ export function compile(
     const program =
         parse(source);
 
-    analyze(program);
+    const semanticInfo = analyze(program);
 
     switch (
         program.target
@@ -38,7 +38,8 @@ export function compile(
 
                 lines:
                     assembleMops(
-                        program
+                        program,
+                        semanticInfo
                     )
             };
 
