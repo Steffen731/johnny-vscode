@@ -19,3 +19,23 @@ export interface ParsedProgram {
 
     labels: Map<string, number>;
 }
+
+export interface CompileResult {
+
+    target: Target;
+
+    lines: string[];
+}
+
+export interface SemanticInfo {
+
+    variables: Set<string>;
+
+    variableMap: Map<string,string>;
+
+    numericAddresses: Set<number>;
+
+    selfModifyingCandidates: Set<string>;
+
+    tstInstructions: number[];
+}

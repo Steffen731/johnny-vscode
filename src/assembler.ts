@@ -26,9 +26,11 @@ interface ParsedLine {
     lineNumber: number;
 }
 
+import {CompileResult} from "./model";
+
 export function assemble(
     source: string
-): string[] {
+): CompileResult {
 
     return compile(
         source
@@ -47,14 +49,27 @@ export async function assembleActiveEditor() {
 
     try {
 
-        const ram = assemble(source);
+        const result =
+            assemble(source);
 
-        const content = ram.join('\n');
+        const content =
+            result.lines.join('\n');
 
         const uri = editor.document.uri;
 
+        const extension =
+
+            result.target === "mops"
+
+                ? ".a"
+
+                : ".ram";
+
         const targetPath =
-            uri.fsPath.replace(/\.jasm$/i, '.ram');
+            uri.fsPath.replace(
+                /\.jasm$/i,
+                extension
+            );
 
         const targetUri = vscode.Uri.file(targetPath);
 

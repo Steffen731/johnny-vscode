@@ -1,0 +1,6 @@
+TAKE a
+SAVE b
+HLT
+
+a: DAT 5
+b: DAT 0

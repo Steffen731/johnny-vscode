@@ -3,10 +3,11 @@ import { analyze } from "./semanticAnalyzer";
 
 import { assembleJohnny } from "./backends/johnnyBackend";
 import { assembleMops } from "./backends/mopsBackend";
+import {CompileResult} from "./model";
 
 export function compile(
     source: string
-): string[] {
+): CompileResult {
 
     const program =
         parse(source);
@@ -19,15 +20,27 @@ export function compile(
 
         case "johnny":
 
-            return assembleJohnny(
-                program
-            );
+            return {
+
+                target: "johnny",
+
+                lines:
+                    assembleJohnny(
+                        program
+                    )
+            };
 
         case "mops":
 
-            return assembleMops(
-                program
-            );
+            return {
+
+                target: "mops",
+
+                lines:
+                    assembleMops(
+                        program
+                    )
+            };
 
         default:
 

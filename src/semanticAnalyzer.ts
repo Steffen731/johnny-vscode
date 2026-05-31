@@ -4,6 +4,8 @@ export interface SemanticInfo {
 
     variables: Set<string>;
 
+    variableMap: Map<string, string>;
+
     numericAddresses: Set<number>;
 
     selfModifyingCandidates: Set<string>;
@@ -17,6 +19,9 @@ export function analyze(
 
     const variables =
         new Set<string>();
+
+    const variableMap =
+        new Map<string, string>();
 
     const numericAddresses =
         new Set<number>();
@@ -81,9 +86,38 @@ export function analyze(
         }
     }
 
+    const aliases = [
+
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h"
+    ];
+
+    let index = 0;
+
+    for (const variable of variables) {
+
+        if (index < aliases.length) {
+
+            variableMap.set(
+                variable,
+                aliases[index]
+            );
+        }
+
+        index++;
+    }
+
     return {
 
         variables,
+
+        variableMap,
 
         numericAddresses,
 
