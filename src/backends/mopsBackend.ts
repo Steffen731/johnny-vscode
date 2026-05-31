@@ -1,6 +1,22 @@
 import { ParsedProgram } from "../model";
 import { SemanticInfo } from "../semanticAnalyzer";
 
+function mapOperand(
+    operand: string | undefined,
+    semanticInfo: SemanticInfo
+): string {
+
+    if (!operand) {
+        return "";
+    }
+
+    return (
+        semanticInfo.variableMap.get(
+            operand
+        ) ?? operand
+    );
+}
+
 export function assembleMops(
     program: ParsedProgram,
     semanticInfo: SemanticInfo
@@ -13,25 +29,38 @@ export function assembleMops(
         switch (instruction.opcode) {
 
             case "TAKE":
-
                 output.push(
-                    `ld ${instruction.argument}`
+                    `ld ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
 
                 break;
 
             case "SAVE":
-
                 output.push(
-                    `st ${instruction.argument}`
+                    `st ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
-
+                
                 break;
 
             case "ADD":
 
                 output.push(
-                    `add ${instruction.argument}`
+                    `add ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
 
                 break;
@@ -39,7 +68,12 @@ export function assembleMops(
             case "SUB":
 
                 output.push(
-                    `sub ${instruction.argument}`
+                    `sub ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
 
                 break;
@@ -47,15 +81,25 @@ export function assembleMops(
             case "JMP":
 
                 output.push(
-                    `jmp ${instruction.argument}`
+                    `jmp ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
-
+                
                 break;
 
             case "HLT":
 
                 output.push(
-                    "end"
+                    `end ${
+                        mapOperand(
+                            instruction.argument,
+                            semanticInfo
+                        )
+                    }`
                 );
 
                 break;
