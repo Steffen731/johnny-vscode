@@ -1,0 +1,8 @@
+; @target mops
+
+TAKE a
+SAVE b
+HLT
+
+a: DAT 1
+b: DAT 0

@@ -24,11 +24,17 @@ export function parse(
 
         const raw = lines[i];
 
-        if (
-            raw.trim().toLowerCase() ===
-            "; @target mops"
-        ) {
-            target = "mops";
+        const targetMatch =
+            raw.match(
+                /^\s*;\s*@target\s+(johnny|mops)\s*$/i
+            );
+
+        if (targetMatch) {
+
+            target =
+                targetMatch[1]
+                    .toLowerCase() as Target;
+
             continue;
         }
 
