@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { Buffer } from 'buffer';
 import { parse } from './parser';
 import { assembleJohnny } from './backends/johnnyBackend';
+import { analyze } from './semanticAnalyzer';
 
 const OPCODES: Record<string, string> = {
     TAKE: '01',
@@ -31,10 +32,14 @@ export function assemble(
     const program =
         parse(source);
 
+    const semanticInfo =
+        analyze(program);
+
     return assembleJohnny(
         program
     );
 }
+
 export async function assembleActiveEditor() {
 
     const editor = vscode.window.activeTextEditor;
