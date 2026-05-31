@@ -3,6 +3,7 @@ import { Buffer } from 'buffer';
 import { parse } from './parser';
 import { assembleJohnny } from './backends/johnnyBackend';
 import { analyze } from './semanticAnalyzer';
+import { compile } from "./compiler";
 
 const OPCODES: Record<string, string> = {
     TAKE: '01',
@@ -29,14 +30,8 @@ export function assemble(
     source: string
 ): string[] {
 
-    const program =
-        parse(source);
-
-    const semanticInfo =
-        analyze(program);
-
-    return assembleJohnny(
-        program
+    return compile(
+        source
     );
 }
 
