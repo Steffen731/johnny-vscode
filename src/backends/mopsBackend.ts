@@ -35,7 +35,7 @@ export function assembleMops(
         const instruction =
             program.instructions[i];
 
-       if (
+        if (
             instruction.label &&
             instruction.opcode !== "DAT"
         ) {
@@ -48,6 +48,7 @@ export function assembleMops(
         switch (instruction.opcode) {
 
             case "TAKE":
+
                 output.push(
                     `ld ${
                         mapOperand(
@@ -60,6 +61,7 @@ export function assembleMops(
                 break;
 
             case "SAVE":
+
                 output.push(
                     `st ${
                         mapOperand(
@@ -68,7 +70,7 @@ export function assembleMops(
                         )
                     }`
                 );
-                
+
                 break;
 
             case "ADD":
@@ -192,37 +194,37 @@ export function assembleMops(
                     program.instructions[i + 1];
 
                 if (
-                    next &&
-                    next.opcode === "JMP"
+                    !next ||
+                    next.opcode !== "JMP"
                 ) {
 
-                    const operand =
-                        mapOperand(
-                            instruction.argument,
-                            semanticInfo
-                        );
-
-                    const skipLabel =
-                        `__skip${++skipCounter}`;
-
-                    output.push(
-                        `ld ${operand}`
+                    throw new Error(
+                        "MOPS unterstützt derzeit nur TST gefolgt von JMP."
                     );
-
-                    output.push(
-                        "cmp 0"
-                    );
-
-                    output.push(
-                        `jeq ${skipLabel}`
-                    );
-
-                    break;
                 }
 
-                throw new Error(
-                    "MOPS backend currently supports only TST followed by JMP."
+                const operand =
+                    mapOperand(
+                        instruction.argument,
+                        semanticInfo
+                    );
+
+                const skipLabel =
+                    `__skip${++skipCounter}`;
+
+                output.push(
+                    `ld ${operand}`
                 );
+
+                output.push(
+                    "cmp 0"
+                );
+
+                output.push(
+                    `jeq ${skipLabel}`
+                );
+
+                break;
             }
 
             case "HLT":
