@@ -91,6 +91,29 @@ export function assembleMops(
                 
                 break;
 
+            case "INC": {
+
+                const target =
+                    mapOperand(
+                        instruction.argument,
+                        semanticInfo
+                    );
+
+                output.push(
+                    `ld ${target}`
+                );
+
+                output.push(
+                    "add 1"
+                );
+
+                output.push(
+                    `st ${target}`
+                );
+
+                break;
+            }
+
             case "HLT":
 
                 output.push(

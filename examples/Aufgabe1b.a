@@ -1,1 +1,4 @@
+ld a
+add 1
+st a
 end 
