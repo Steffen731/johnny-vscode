@@ -16,6 +16,16 @@ export function compile(
 
     if (
         program.target === "mops" &&
+        semanticInfo.numericAddresses.size > 0
+    ) {
+
+        throw new Error(
+            "MOPS unterstützt keine numerischen Speicherzugriffe. Verwende DAT-Variablen."
+        );
+    }
+
+    if (
+        program.target === "mops" &&
         semanticInfo
             .selfModifyingCandidates
             .size > 0

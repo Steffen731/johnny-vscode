@@ -45,11 +45,41 @@ export function analyze(
             );
         }
 
+        const MEMORY_OPCODES = [
+
+            "TAKE",
+
+            "SAVE",
+
+            "ADD",
+
+            "SUB",
+
+            "INC",
+
+            "DEC",
+
+            "NULL",
+
+            "TST"
+        ];
+
         if (
-            instruction.argument &&
+
+            MEMORY_OPCODES.includes(
+                instruction.opcode
+            )
+
+            &&
+
+            instruction.argument
+
+            &&
+
             /^[0-9]+$/.test(
                 instruction.argument
             )
+
         ) {
 
             numericAddresses.add(
