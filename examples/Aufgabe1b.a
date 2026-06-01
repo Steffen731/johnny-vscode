@@ -1,3 +1,8 @@
-ld 0
-st a
-end 
+:loop
+ld a
+ld a
+cmp 0
+jeq __skip1
+jmp loop
+:__skip1
+end

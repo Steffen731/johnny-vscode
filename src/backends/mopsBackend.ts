@@ -22,9 +22,28 @@ export function assembleMops(
     semanticInfo: SemanticInfo
 ): string[] {
 
+    let skipCounter = 0;
+
     const output: string[] = [];
 
-    for (const instruction of program.instructions) {
+    for (
+        let i = 0;
+        i < program.instructions.length;
+        i++
+    ) {
+
+        const instruction =
+            program.instructions[i];
+
+       if (
+            instruction.label &&
+            instruction.opcode !== "DAT"
+        ) {
+
+            output.push(
+                `:${instruction.label}`
+            );
+        }
 
         switch (instruction.opcode) {
 
@@ -78,7 +97,7 @@ export function assembleMops(
 
                 break;
 
-            case "JMP":
+            case "JMP": {
 
                 output.push(
                     `jmp ${
@@ -88,8 +107,19 @@ export function assembleMops(
                         )
                     }`
                 );
-                
+
+                if (
+                    i > 0 &&
+                    program.instructions[i - 1].opcode === "TST"
+                ) {
+
+                    output.push(
+                        `:__skip${skipCounter}`
+                    );
+                }
+
                 break;
+            }
 
             case "INC": {
 
@@ -156,15 +186,49 @@ export function assembleMops(
                 break;
             }
 
-            case "HLT":
+            case "TST": {
 
-                output.push(
-                    `end ${
+                const next =
+                    program.instructions[i + 1];
+
+                if (
+                    next &&
+                    next.opcode === "JMP"
+                ) {
+
+                    const operand =
                         mapOperand(
                             instruction.argument,
                             semanticInfo
-                        )
-                    }`
+                        );
+
+                    const skipLabel =
+                        `__skip${++skipCounter}`;
+
+                    output.push(
+                        `ld ${operand}`
+                    );
+
+                    output.push(
+                        "cmp 0"
+                    );
+
+                    output.push(
+                        `jeq ${skipLabel}`
+                    );
+
+                    break;
+                }
+
+                throw new Error(
+                    "MOPS backend currently supports only TST followed by JMP."
+                );
+            }
+
+            case "HLT":
+
+                output.push(
+                    "end"
                 );
 
                 break;
