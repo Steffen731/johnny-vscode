@@ -68,10 +68,18 @@ export function analyze(
             );
         }
 
-       if (
-            instruction.opcode === "INC" ||
-            instruction.opcode === "DEC" ||
-            instruction.opcode === "NULL"
+        const WRITING_OPCODES = [
+            "SAVE",
+            "INC",
+            "DEC",
+            "NULL"
+        ];
+
+
+      if (
+            WRITING_OPCODES.includes(
+                instruction.opcode
+            )
         ) {
 
             if (!instruction.argument) {
