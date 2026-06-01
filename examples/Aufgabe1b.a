@@ -1,8 +1,4 @@
-:loop
 ld a
-ld a
-cmp 0
-jeq __skip1
-jmp loop
-:__skip1
+add 1
+st a
 end

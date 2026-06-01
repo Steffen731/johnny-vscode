@@ -68,17 +68,35 @@ export function analyze(
             );
         }
 
-        if (
+       if (
             instruction.opcode === "INC" ||
             instruction.opcode === "DEC" ||
             instruction.opcode === "NULL"
         ) {
 
-            if (
-                instruction.argument &&
-                program.labels.has(
+            if (!instruction.argument) {
+                continue;
+            }
+
+            const labelAddress =
+                program.labels.get(
                     instruction.argument
-                )
+                );
+
+            if (
+                labelAddress === undefined
+            ) {
+                continue;
+            }
+
+            const targetInstruction =
+                program.instructions[
+                    labelAddress
+                ];
+
+            if (
+                targetInstruction &&
+                targetInstruction.opcode !== "DAT"
             ) {
 
                 selfModifyingCandidates.add(

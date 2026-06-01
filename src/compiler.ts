@@ -16,6 +16,18 @@ export function compile(
 
     if (
         program.target === "mops" &&
+        semanticInfo
+            .selfModifyingCandidates
+            .size > 0
+    ) {
+
+        throw new Error(
+            "MOPS unterstützt keinen selbstmodifizierenden Code."
+        );
+    }
+
+    if (
+        program.target === "mops" &&
         semanticInfo.variableCount > 8
     ) {
 
