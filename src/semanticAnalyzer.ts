@@ -6,6 +6,8 @@ export interface SemanticInfo {
 
     variableMap: Map<string, string>;
 
+    variableCount: number;
+
     numericAddresses: Set<number>;
 
     selfModifyingCandidates: Set<string>;
@@ -118,6 +120,9 @@ export function analyze(
         variables,
 
         variableMap,
+
+        variableCount:
+            variables.size,
 
         numericAddresses,
 

@@ -14,6 +14,16 @@ export function compile(
 
     const semanticInfo = analyze(program);
 
+    if (
+        program.target === "mops" &&
+        semanticInfo.variableCount > 8
+    ) {
+
+        throw new Error(
+            "MOPS unterstützt maximal 8 Variablen."
+        );
+    }
+
     switch (
         program.target
     ) {
