@@ -1,4 +1,3 @@
-ld a
-sub 1
+ld 0
 st a
 end 

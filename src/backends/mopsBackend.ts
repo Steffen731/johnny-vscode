@@ -137,6 +137,25 @@ export function assembleMops(
                 break;
             }
 
+            case "NULL": {
+
+                const target =
+                    mapOperand(
+                        instruction.argument,
+                        semanticInfo
+                    );
+
+                output.push(
+                    "ld 0"
+                );
+
+                output.push(
+                    `st ${target}`
+                );
+
+                break;
+            }
+
             case "HLT":
 
                 output.push(
