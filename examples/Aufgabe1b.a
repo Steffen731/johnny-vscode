@@ -1,8 +1,6 @@
-:loop
-ld a
+ld a :loop
 ld a
 cmp 0
-jeq __skip1
+jeq skip1
 jmp loop
-:__skip1
-end
+end :skip1

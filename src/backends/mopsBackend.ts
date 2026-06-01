@@ -17,12 +17,25 @@ function mapOperand(
     );
 }
 
+function appendPendingLabel(
+    text: string,
+    pendingLabel: string | null
+): string {
+
+    if (!pendingLabel) {
+        return text;
+    }
+
+    return `${text} :${pendingLabel}`;
+}
+
 export function assembleMops(
     program: ParsedProgram,
     semanticInfo: SemanticInfo
 ): string[] {
 
     let skipCounter = 0;
+    let pendingLabel: string | null = null;
 
     const output: string[] = [];
 
@@ -35,15 +48,14 @@ export function assembleMops(
         const instruction =
             program.instructions[i];
 
-        if (
-            instruction.label &&
-            instruction.opcode !== "DAT"
-        ) {
+        const labelSuffix =
 
-            output.push(
-                `:${instruction.label}`
-            );
-        }
+        instruction.label &&
+        instruction.opcode !== "DAT"
+
+            ? ` :${instruction.label}`
+
+            : "";
 
         switch (instruction.opcode) {
 
@@ -55,7 +67,7 @@ export function assembleMops(
                             instruction.argument,
                             semanticInfo
                         )
-                    }`
+                    }${labelSuffix}`
                 );
 
                 break;
@@ -68,7 +80,7 @@ export function assembleMops(
                             instruction.argument,
                             semanticInfo
                         )
-                    }`
+                    }${labelSuffix}`
                 );
 
                 break;
@@ -81,7 +93,7 @@ export function assembleMops(
                             instruction.argument,
                             semanticInfo
                         )
-                    }`
+                    }${labelSuffix}`
                 );
 
                 break;
@@ -94,7 +106,7 @@ export function assembleMops(
                             instruction.argument,
                             semanticInfo
                         )
-                    }`
+                    }${labelSuffix}`
                 );
 
                 break;
@@ -107,18 +119,8 @@ export function assembleMops(
                             instruction.argument,
                             semanticInfo
                         )
-                    }`
+                    }${labelSuffix}`
                 );
-
-                if (
-                    i > 0 &&
-                    program.instructions[i - 1].opcode === "TST"
-                ) {
-
-                    output.push(
-                        `:__skip${skipCounter}`
-                    );
-                }
 
                 break;
             }
@@ -132,7 +134,7 @@ export function assembleMops(
                     );
 
                 output.push(
-                    `ld ${target}`
+                    `ld ${target}${labelSuffix}`
                 );
 
                 output.push(
@@ -155,7 +157,7 @@ export function assembleMops(
                     );
 
                 output.push(
-                    `ld ${target}`
+                    `ld ${target}${labelSuffix}`
                 );
 
                 output.push(
@@ -178,7 +180,7 @@ export function assembleMops(
                     );
 
                 output.push(
-                    "ld 0"
+                    `ld 0${labelSuffix}`
                 );
 
                 output.push(
@@ -210,7 +212,8 @@ export function assembleMops(
                     );
 
                 const skipLabel =
-                    `__skip${++skipCounter}`;
+                    `skip${++skipCounter}`;
+                pendingLabel = skipLabel;
 
                 output.push(
                     `ld ${operand}`
@@ -230,10 +233,13 @@ export function assembleMops(
             case "HLT":
 
                 output.push(
-                    "end"
+                    appendPendingLabel(
+                        "end",
+                        pendingLabel
+                    )
                 );
 
-                break;
+                pendingLabel = null;
 
             case "DAT":
 
