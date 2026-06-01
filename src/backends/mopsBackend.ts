@@ -114,6 +114,29 @@ export function assembleMops(
                 break;
             }
 
+            case "DEC": {
+
+                const target =
+                    mapOperand(
+                        instruction.argument,
+                        semanticInfo
+                    );
+
+                output.push(
+                    `ld ${target}`
+                );
+
+                output.push(
+                    "sub 1"
+                );
+
+                output.push(
+                    `st ${target}`
+                );
+
+                break;
+            }
+
             case "HLT":
 
                 output.push(
